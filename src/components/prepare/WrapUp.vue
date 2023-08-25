@@ -47,7 +47,10 @@
     }
     get instanceLink(): string {
       const origin = window.location.origin;
-      return origin + '#' + this.instanceHash;
+      const pathsplit = window.location.pathname.split('/');
+      pathsplit.pop();
+      const path = pathsplit.join('/');
+      return origin + path + '/#' + this.instanceHash;
     }
     download(): void {
       downloadInstanceJson(this.instance);
