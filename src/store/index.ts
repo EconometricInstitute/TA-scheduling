@@ -103,6 +103,9 @@ export default new Vuex.Store({
                 const instance = JSON.parse(src.data);
                 context.commit('setInstance', instance);
             }
+            else if (src.instance) {
+                context.commit('setInstance', src.instance);
+            }
             else if (src.url) {
                 return fetch(src.url)
                     .then(response => {

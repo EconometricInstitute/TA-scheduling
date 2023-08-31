@@ -172,6 +172,7 @@ export function createGroupSpreadSheet(state: SchedulingState): XLSX.WorkBook {
     // }
 
     for (const [idx, group] of groups.entries()) {
+        const sanitizedGroup = group.replaceAll(/[^A-Za-z0-9-_]/g,'_');
         const sheetArray: (string|Date)[][] = [['Start', 'End', 'Location', 'Teacher']];
         const sessions = map.get(group);
         if (sessions) {
@@ -181,9 +182,9 @@ export function createGroupSpreadSheet(state: SchedulingState): XLSX.WorkBook {
                 sheetArray.push([start.toLocaleString(),end.toLocaleString(), session.location, session.userId]);
             }
         }
-        addSheet(result, sheetArray, `${idx+1}. ${group}`, [28, 28, 35, 28]);
+        addSheet(result, sheetArray, `${idx+1}. ${sanitizedGroup}`, [28, 28, 35, 28]);
     }
-
+    console.log(result);
     return result;
 }
 
