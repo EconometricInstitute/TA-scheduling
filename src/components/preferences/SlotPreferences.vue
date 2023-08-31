@@ -3,6 +3,8 @@
     <v-row>
       <v-col cols="12">
         <h3>Please indicate for the following time slots your availability and preference</h3>
+        <p>Indicate your <em>general</em> availability for the entire duration of the course.
+          If you are unavailable for one week, typically we can try to solve that separately.</p>
       </v-col>
     </v-row>
     <v-row>
